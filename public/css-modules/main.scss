@@ -2,8 +2,130 @@
 
 $title-font: 'Oswald', sans-serif;
 $main-mint: #4CE881;
+$main-grey: #313131;
+$logo-size: 75px;
 
-h1 {
-    font: $title-font;
-    color: $main-mint;
+
+.container{
+    width: 80%;
+    margin: 0px auto;
+    #nav-bar {
+        width: 100%;
+        min-height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      
+      #nav-toggle {
+        display: none;
+      }
+      
+      #nav-toggle_label {
+        background-color: white;
+        padding: 0 10px;
+        position: absolute;
+        top: 10px;
+        left: 260px;
+        white-space: nowrap;
+        display: block;
+        font-size: 2.5em;
+        cursor: pointer;
+        transform: translate3d(0, 0, 0);
+        animation-name: show;
+        animation-duration: 2s;
+      }
+      
+      label#nav-back-to-page {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      
+      input[type=checkbox]#nav-toggle:checked ~ label#nav-back-to-page {
+        display: block;
+      }
+      
+      input[type=checkbox]#nav-toggle:checked ~ .nav-slide-menu {
+        transform: translate3d(250px, 0, 0);
+      }
+      
+      input[type=checkbox]#nav-toggle:checked ~ .nav-slide-menu #nav-toggle_label {
+        animation-name: hide;
+        animation-duration: 0.2s;
+        display: none;
+        animation-fill-mode: forwards;
+      }
+      
+      .nav-slide-menu {
+        position: absolute;
+        width: 250px;
+        background: #fff;
+        left: -250px;
+        height: 100%;
+        z-index: 100;
+        transition: all .2s;
+      }
+      
+      .nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .nav-menu a {
+        font-family: $title-font;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        font-size: 12px;
+        color: $main-grey;
+        padding: 15px;
+        border-bottom: 1px dotted $main-grey;
+      }
+
+      @keyframes hide {
+        0% {
+          opacity: 1;
+        }
+        99% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+          display: none;
+        }
+      }
+      
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+        99% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    h1 {
+        font-family: $title-font;
+        text-align: center;
+        color: $main-mint;
+        font-size: $logo-size;
+            .green-title {
+                color: $main-grey;
+            }
+    }
+    .searchbox {
+        width: 175px;
+        height: 25px;
+        border: 1px solid #313131;
+        border-radius: 15px;
+        text-indent: 15px;
+    }
 }
+
