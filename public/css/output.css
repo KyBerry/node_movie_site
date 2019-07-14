@@ -1,92 +1,112 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
-.container {
-  width: 80%;
-  margin: 0px auto; }
-  .container #nav-bar {
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0; }
-  .container #nav-toggle {
-    display: none; }
-  .container #nav-toggle_label {
-    background-color: white;
-    padding: 0 10px;
-    position: absolute;
-    top: 10px;
-    left: 260px;
-    white-space: nowrap;
-    display: block;
-    font-size: 2.5em;
-    cursor: pointer;
-    transform: translate3d(0, 0, 0);
-    animation-name: show;
-    animation-duration: 2s; }
-  .container label#nav-back-to-page {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 99;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.3); }
-  .container input[type=checkbox]#nav-toggle:checked ~ label#nav-back-to-page {
-    display: block; }
-  .container input[type=checkbox]#nav-toggle:checked ~ .nav-slide-menu {
-    transform: translate3d(250px, 0, 0); }
-  .container input[type=checkbox]#nav-toggle:checked ~ .nav-slide-menu #nav-toggle_label {
-    animation-name: hide;
-    animation-duration: 0.2s;
-    display: none;
-    animation-fill-mode: forwards; }
-  .container .nav-slide-menu {
-    position: absolute;
-    width: 250px;
-    background: #fff;
-    left: -250px;
-    height: 100%;
-    z-index: 100;
-    transition: all .2s; }
-  .container .nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0; }
-  .container .nav-menu a {
-    font-family: "Oswald", sans-serif;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    font-size: 12px;
-    color: #313131;
-    padding: 15px;
-    border-bottom: 1px dotted #313131; }
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-family: "Oswald", sans-serif;
+  box-sizing: border-box; }
 
-@keyframes hide {
-  0% {
-    opacity: 1; }
-  99% {
-    opacity: 0; }
-  100% {
-    opacity: 0;
-    display: none; } }
+.navigation__checkbox {
+  display: none; }
 
-@keyframes show {
-  0% {
-    opacity: 0; }
-  99% {
-    opacity: 1; }
-  100% {
-    opacity: 1; } }
-  .container h1 {
+.navigation__button {
+  background-color: #fff;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 3.5rem;
+  right: 3.5rem;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); }
+
+.navigation__background {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  background-image: radial-gradient(#B0FFCB, #4CE881);
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all .8s; }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  width: 100%; }
+
+.navigation__section {
+  font-size: 20px;
+  color: #313131;
+  margin: 10px 0px; }
+
+.navigation__item {
+  margin: .5rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  padding: .25rem .5rem;
+  color: #545454;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 240%;
+  transition: all .4s; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  transform: translateX(0.25rem); }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+header {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+  header h1 {
     font-family: "Oswald", sans-serif;
-    text-align: center;
     color: #4CE881;
     font-size: 75px; }
-    .container h1 .green-title {
+    header h1 .green-title {
       color: #313131; }
-  .container .searchbox {
-    width: 175px;
+  header form input {
+    width: 150px;
     height: 25px;
     border: 1px solid #313131;
-    border-radius: 15px;
     text-indent: 15px; }
+  header form button {
+    width: 75px;
+    height: 25px;
+    color: #fff;
+    background-color: #313131; }
