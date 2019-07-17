@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const searchMovie = require('./utils/search');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,14 @@ app.use(express.static(publicDirectoryPath));
 
 app.get('/', (req,res) => {
     res.render('index');
+});
+
+app.get('/search', (req, res) => {
+    if (!req.query.movie) {
+        return res.send({
+            error: 'You must provide an address'
+        });
+    }
 });
 
 app.listen(port, () => {
