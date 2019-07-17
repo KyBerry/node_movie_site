@@ -26,9 +26,19 @@ app.get('/', (req,res) => {
 app.get('/search', (req, res) => {
     if (!req.query.movie) {
         return res.send({
-            error: 'You must provide an address'
+            error: 'You must provide an a movie'
         });
     }
+    searchMovie(req.query.movie, (error, movieData) => {
+        if (error) {
+            return res.send({
+                error
+            });
+        }
+        res.send({
+            data: movieData
+        });
+    });
 });
 
 app.listen(port, () => {

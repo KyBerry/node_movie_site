@@ -14,3 +14,5 @@ const search = (search, callback) => {
     });
 }
 
+module.exports = search;
+
