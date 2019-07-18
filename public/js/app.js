@@ -1,5 +1,6 @@
 const searchForm = document.querySelector('form');
 const search = document.querySelector('.searchbox');
+const placeholder = document.querySelectorAll('.movie-section__placeholder');
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -17,3 +18,9 @@ searchForm.addEventListener('submit', (e) => {
     });
     search.value = '';
 });
+
+setTimeout(() => {
+    placeholder.forEach((item) => {
+            item.remove();
+        });
+}, 1000);
