@@ -62,11 +62,11 @@
   margin: 10px 0px; }
 
 .navigation__item {
-  margin: .5rem; }
+  margin: .25rem; }
 
 .navigation__link:link, .navigation__link:visited {
   display: inline-block;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 300;
   padding: .25rem .5rem;
   color: #545454;
