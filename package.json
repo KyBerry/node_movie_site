@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/js/app.js",
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e hbs,js,css",
     "sass:compile": "node-sass --include-path sass public/input.scss public/css/output.css"
   },
   "keywords": [],
